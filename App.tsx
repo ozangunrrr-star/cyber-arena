@@ -13,14 +13,17 @@ enum GameState {
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.MainMenu);
   const [score, setScore] = useState(0);
+  const [gameResult, setGameResult] = useState<'win' | 'loss' | null>(null);
 
   const startGame = useCallback(() => {
     setScore(0);
+    setGameResult(null);
     setGameState(GameState.Playing);
   }, []);
 
-  const gameOver = useCallback((finalScore: number) => {
+  const gameOver = useCallback((finalScore: number, result: 'win' | 'loss') => {
     setScore(finalScore);
+    setGameResult(result);
     setGameState(GameState.GameOver);
   }, []);
 
@@ -33,7 +36,7 @@ const App: React.FC = () => {
       case GameState.Playing:
         return <Game onGameOver={gameOver} />;
       case GameState.GameOver:
-        return <GameOver score={score} onRestart={startGame} onMenu={backToMenu} />;
+        return <GameOver score={score} result={gameResult} onRestart={startGame} onMenu={backToMenu} />;
       case GameState.MainMenu:
       default:
         return <MainMenu onStartGame={startGame} />;

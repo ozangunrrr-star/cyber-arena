@@ -21,6 +21,17 @@
             linear-gradient(90deg, rgba(203, 213, 225, 0.1) 1px, transparent 1px);
         background-size: 40px 40px;
       }
+      @keyframes sukuna-aura {
+        0%, 100% {
+          box-shadow: 0 0 15px 3px rgba(239, 68, 68, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 25px 8px rgba(239, 68, 68, 0.6);
+        }
+      }
+      .sukuna-aura-animate {
+        animation: sukuna-aura 3s ease-in-out infinite;
+      }
     </style>
   <script type="importmap">
 {

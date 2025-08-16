@@ -1,20 +1,29 @@
+
 import React from 'react';
 
 interface GameOverProps {
   score: number;
+  result: 'win' | 'loss' | null;
   onRestart: () => void;
   onMenu: () => void;
 }
 
-const GameOver: React.FC<GameOverProps> = ({ score, onRestart, onMenu }) => {
+const GameOver: React.FC<GameOverProps> = ({ score, result, onRestart, onMenu }) => {
+  const isWin = result === 'win';
+
   return (
     <div className="w-full h-full flex flex-col items-center justify-center p-4">
       <div className="text-center p-10 bg-black/50 rounded-lg shadow-2xl backdrop-blur-md border border-cyan-500/50">
-        <h1 className="text-7xl font-black text-red-500 uppercase tracking-wider mb-2">
-          Time's Up!
+        <h1 className={`text-7xl font-black uppercase tracking-wider mb-2 ${isWin ? 'text-green-400' : 'text-red-500'}`}>
+          {isWin ? "You Win!" : "Time's Up!"}
         </h1>
         <p className="text-gray-300 text-2xl mb-6">Your Final Score:</p>
-        <p className="text-9xl font-bold text-cyan-400 mb-10" style={{textShadow: '0 0 15px rgba(0, 255, 255, 0.5)'}}>{score}</p>
+        <p 
+          className="text-9xl font-bold text-cyan-400 mb-10" 
+          style={{textShadow: `0 0 25px ${isWin ? 'rgba(0, 255, 255, 0.8)' : 'rgba(200, 200, 200, 0.4)'}`}}
+        >
+          {score}
+        </p>
         <div className="flex space-x-4">
             <button
             onClick={onRestart}

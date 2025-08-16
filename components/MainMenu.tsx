@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface MainMenuProps {
@@ -15,7 +16,8 @@ const MainMenu: React.FC<MainMenuProps> = ({ onStartGame }) => {
            <p>Use <span className="font-bold text-white bg-gray-700 px-2 py-1 rounded">W</span> <span className="font-bold text-white bg-gray-700 px-2 py-1 rounded">A</span> <span className="font-bold text-white bg-gray-700 px-2 py-1 rounded">S</span> <span className="font-bold text-white bg-gray-700 px-2 py-1 rounded">D</span> to move.</p>
            <p>Aim with your mouse.</p>
            <p><span className="font-bold text-white">Click</span> to shoot the targets.</p>
-           <p>Score as many points as you can in 60 seconds!</p>
+           <p><span className="font-bold text-cyan-400">Level 1:</span> Score 30 points in 60 seconds.</p>
+           <p><span className="font-bold text-purple-400">Level 2:</span> Score 50 more points in 120 seconds to win!</p>
         </div>
         <button
           onClick={onStartGame}
