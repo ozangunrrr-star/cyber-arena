@@ -1,0 +1,5 @@
+{
+  "name": "Cyberstrike Arena",
+  "description": "Yukarıdan aşağıya 2D bir arena nişancı oyunu. Hareket etmek için WASD tuşlarını kullanın, fare ile nişan alın ve süre dolmadan hedefleri vurmak için tıklayın.",
+  "requestFramePermissions": []
+}
